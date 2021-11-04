@@ -135,7 +135,7 @@ while end != 4:
     f[0].header["SN_" + filter] = magb
     
     PSF = PSF[x - 5: x + 5, y - 5: y + 5]
-    print(PSF.shape())
+    print(PSF.shape)
     if yes >= 0.5:      
         f[0].header["placed"] = 'yes'
         data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
