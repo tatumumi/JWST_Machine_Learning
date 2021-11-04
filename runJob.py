@@ -26,7 +26,7 @@ for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a
   f.write("#SBATCH --error=example-%A.err # %A - filled with jobid, where to write the stderr\n")
   f.write("#SBATCH --output=example-%A.out # %A - filled with jobid, wher to write the stdout\n")
   f.write("source ~/.bash_profile\n")
-  f.write("cd JWST_Machine_Learning")
+  f.write("cd JWST_Machine_Learning\n")
   f.write("python MachineLearningProjectFinal.py " + image)
   f.close()
   print(getoutput("sbatch sub.sh"))
