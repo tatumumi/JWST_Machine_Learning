@@ -87,16 +87,16 @@ while end != 4:
     #starts with F115 filter
     if end == 0:
         filter = 'F115W'
-        file = "/Users/joshuaumiamaka/Downloads/F115W.fits"
+        file = "F115W.fits"
     if end == 1:
         filter = 'F150W'
-        file = "/Users/joshuaumiamaka/Downloads/F150W.fits"
+        file = "F150W.fits"
     if end == 2:
         filter = 'F277W'
-        file = "/Users/joshuaumiamaka/Downloads/F277W.fits"
+        file = "F277W.fits"
     if end == 3:
         filter = 'F444W'
-        file = "/Users/joshuaumiamaka/Downloads/F444W.fits"
+        file = "F444W.fits"
         
     if filter == "F115W":
         f = fits.open(sys.argv[1].replace('f115w', filter.lower()))
