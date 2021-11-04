@@ -14,8 +14,7 @@ import glob
 import random
 import time
 
-  
-for image in glob.glob("*/*/*/*/f115w/*a0.[2-9]*"):
+for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*'):
   f = open("sub.sh", 'w')
   f.write("#!/bin/bash\n")
   f.write("#SBATCH --job-name=example\n")
@@ -28,7 +27,7 @@ for image in glob.glob("*/*/*/*/f115w/*a0.[2-9]*"):
   f.write("#SBATCH --output=example-%A.out # %A - filled with jobid, wher to write the stdout\n")
   f.write("source ~/.bash_profile\n")
   f.write("cd your_directory\n")
-  f.write("python your_script.py " + image + " " + "YN"[random.random() < 0.5])
+  f.write("python Machine_Learning_Project_Final.py " + image)
   f.close()
   print(getoutput("sbatch sub.sh"))
   time.sleep(0.25)
