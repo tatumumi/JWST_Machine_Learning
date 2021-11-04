@@ -143,7 +143,7 @@ while end != 4:
         f[0].data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
     
     #figure out what parts of the path are unique and add it her for "-".join
-    f.writeto("file" + "-".join(sys.argv[1].split("/")[:11]) + filter + ".fits", clobber = True)
+    f.writeto("file" + "-".join(sys.argv[1].split("/")[:11]), clobber = True)
     f.close()
     old_fl = "/Users/joshuaumiamaka/Downloads/hlsp_vela_jwst_nircam_vela01_f150w_v3_sim/cam01/jwst/nircam/f150w/hlsp_vela_jwst_nircam_vela01-cam01-a0.250_f150w_v3_sim.fits"
     new_fl = "file" + filter + ".fits"
