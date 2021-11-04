@@ -136,9 +136,11 @@ while end != 4:
     
     PSF = PSF[x - 5: x + 5, y - 5: y + 5]
     print(PSF.shape)
+    print(f[0].data[i - 5: i + 5, j - 5: j + 5].shape)
+    print(f[0].data.shape)
     if yes >= 0.5:      
         f[0].header["placed"] = 'yes'
-        data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
+        f[0].data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
     
     #figure out what parts of the path are unique and add it her for "-".join
     f.writeto("file" + "-".join(sys.argv[1].split("/")[:3]) + filter + ".fits", clobber = True)
