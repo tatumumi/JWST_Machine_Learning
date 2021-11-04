@@ -52,8 +52,8 @@ def pk_coord():
     stop = 1
     while stop == 1:
         #randomly pick coordinates
-        i = random.randint(0,len(data) - 1)
-        j = random.randint(0,len(data) - 1)
+        i = random.randint(5,len(data) - 6)
+        j = random.randint(5,len(data) - 6)
         num = data[i,j]/data.max()
         randNum = random.random()
         #if the random number is less than fraction then use coordinates
