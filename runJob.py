@@ -31,7 +31,7 @@ for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a
   f.close()
   print(getoutput("sbatch sub.sh"))
   time.sleep(0.25)
-  sis.exit()
+  
   
 
     
