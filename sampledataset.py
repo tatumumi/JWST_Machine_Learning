@@ -46,34 +46,33 @@ check277 = False
 check444 = False
 
 for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*')):
-        print(image)
         #subprocess.getoutput("/Applications/ds9 new_file_" + filter + ".fits")
         #open each of the four images 
         
         
         #checks if 115W exists
         if os.path.exists(image) == True:
-            check115 == True
+            check115 = True
         else:
-            check115  == False
+            check115  = False
             
         #checks if 150W exists
         if os.path.exists(image.replace("f115w", "f150w")) == True:
-            check150 == True
+            check150 = True
         else:
-            check150 == False
+            check150 = False
             
         #checks if 277W exists
         if os.path.exists(image.replace("f115w", "f277w")) == True:
-            check277 == True
+            check277 = True
         else:
-            check277 == False
+            check277 = False
             
         #checks if 444W exists
         if os.path.exists(image.replace("f115w", "f444w")) == True:
-            check444 == True
+            check444 = True
         else:
-            check444 == False
+            check444 = False
         
         
         if check115 & check150 & check277 & check444 == True:
@@ -98,7 +97,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
                    else:
                           supernova = 0
                             #add filter adjustments for crop
-                   if supernova ==1:
+                   if supernova == 1:
                         h.checkbound(i,j)
                         if bound == 1:
                             all_data_for_SN = crop32() 
