@@ -130,17 +130,19 @@ while end != 4:
     print("i,j", i,j)
     print("e_s", e_s)
     
-    f[0].header["SN_i"] = i
-    f[0].header["SN_j"] = j
-    f[0].header["SN_" + filter] = magb
+    f[0].header["SN_I"] = i
+    f[0].header["SN_J"] = j
+    f[0].header["SN_" + filter.upper()] = magb
     
     PSF = PSF[x - 5: x + 5, y - 5: y + 5]
     print(PSF.shape)
     print(f[0].data[i - 5: i + 5, j - 5: j + 5].shape)
     print(f[0].data.shape)
     if yes >= 0.5:      
-        f[0].header["placed"] = 'yes'
+        f[0].header["PLACED"] = 'yes'
         f[0].data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
+    else:
+        f[0].header["PLACED"] = 'no'
     
     #figure out what parts of the path are unique and add it her for "-".join
     f.writeto("file" + "-".join(sys.argv[1].split("/")[:11]).replace("f115w", filter), clobber = True)
