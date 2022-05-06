@@ -82,7 +82,6 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
                k = 0
                while k < len(filt):
                    h = fits.open(image.replace("f115w", filt[k]))        
-                   PSF = h["DET_SAMP"].data
                    data = h[0].data
                    length = len(data)
                    header = h[0].header
