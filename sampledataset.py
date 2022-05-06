@@ -87,8 +87,8 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
                    header = h[0].header
                    all_data_for_SN = []
                    bound = 0
-                   i = h["SN_i"]
-                   j = h["SN_j"]
+                   i = header["SN_i"]
+                   j = header["SN_j"]
                    #check if supernova was planted
                    if h[0].header["placed"] == 'yes':
                       supernova = 1
