@@ -78,6 +78,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
         
         if check115 & check150 & check277 & check444 == True:
         #for exists(image.replace(filt,"f150w"))
+               print("all checks")
              
                k = 0
                while k < len(filt):
