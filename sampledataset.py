@@ -92,6 +92,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
                    #check if supernova was planted
                    if h[0].header["placed"] == 'yes':
                       supernova = 1
+                    #adds image with nova into array
                       sup_img.append(image)
                    else:
                           supernova = 0
