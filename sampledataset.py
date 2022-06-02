@@ -88,10 +88,10 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                    header = h[0].header
                    all_data_for_SN = []
                    bound = 0
-                   i = header["SN_i"]
-                   j = header["SN_j"]
+                   i = header["SN_I"]
+                   j = header["SN_J"]
                    #check if supernova was planted
-                   if h[0].header["placed"] == 'yes':
+                   if h[0].header["PLACED"] == 'yes':
                       supernova = 1
                     #adds image with nova into array
                       sup_img.append(image)
