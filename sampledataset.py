@@ -49,6 +49,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
         #subprocess.getoutput("/Applications/ds9 new_file_" + filter + ".fits")
         #open each of the four images 
         
+        print(image)
         
         #checks if 115W exists
         if os.path.exists(image) == True:
