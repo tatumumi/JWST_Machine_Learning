@@ -45,7 +45,7 @@ check150 = False
 check277 = False
 check444 = False
 
-for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*')):
+for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
         #subprocess.getoutput("/Applications/ds9 new_file_" + filter + ".fits")
         #open each of the four images 
         
