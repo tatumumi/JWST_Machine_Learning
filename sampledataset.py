@@ -20,6 +20,8 @@ filt = ["f115w","f150w","f277w","f444w"]
 
 #method to check if supernova places 16 pixels within border
 def check_bound():
+    i = h[0].header["SN_I"]
+    j = h[0].header["SN_J"]
     if i >= 16 and i <= length - 16 and j >= 16 and j <= length -16:
         bound = 1
     else: 
@@ -88,8 +90,6 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                    header = h[0].header
                    all_data_for_SN = []
                    bound = 0
-                   i = header["SN_I"]
-                   j = header["SN_J"]
                    #check if supernova was planted
                    if h[0].header["PLACED"] == 'yes':
                       supernova = 1
@@ -99,7 +99,7 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                           supernova = 0
                             #add filter adjustments for crop
                    if supernova == 1:
-                        h.checkbound(i,j)
+                        h.checkbound()
                         if bound == 1:
                             all_data_for_SN = crop32() 
                         else:
