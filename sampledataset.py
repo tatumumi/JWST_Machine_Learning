@@ -27,7 +27,7 @@ def check_bound():
     return bound
     
  #method to crop image into 32 x 32   
-def crop32():
+def crop32(all_data_for_SN):
     all_data_for_SN.append(h[0].data[i-16:i+16, j-16:j+16]*1.)
     return all_data_for_SN
 
@@ -101,7 +101,7 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                    if supernova == 1:
                         check_bound(i,j)
                         if bound == 1:
-                            all_data_for_SN = crop32() 
+                            all_data_for_SN = crop32(all_data_for_SN) 
                         else:
                             continue
                    k += 1
