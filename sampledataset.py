@@ -99,7 +99,7 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                           supernova = 0
                             #add filter adjustments for crop
                    if supernova == 1:
-                        h.checkbound()
+                        h.check_bound()
                         if bound == 1:
                             all_data_for_SN = crop32() 
                         else:
