@@ -19,7 +19,7 @@ sup_img = []
 filt = ["f115w","f150w","f277w","f444w"]
 
 #method to check if supernova places 16 pixels within border
-def check_bound():
+def check_bound(i, j):
     if i >= 16 and i <= length - 16 and j >= 16 and j <= length -16:
         bound = 1
     else: 
