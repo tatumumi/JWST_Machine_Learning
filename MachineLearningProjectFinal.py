@@ -113,9 +113,12 @@ while end != 4:
     print(REDSHIFT)
     print(header)
 
+   
     magb= model.bandmag(filter, 'ab', time=0.)
     e_s= 10**((magb-header['ABZP'])/-2.5)
     print(e_s)
+ 
+     
     
     #opens image 
     h = fits.open(file)
