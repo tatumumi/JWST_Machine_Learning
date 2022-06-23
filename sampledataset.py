@@ -78,10 +78,10 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
         
         if check115 & check150 & check277 & check444 == True:
         #for exists(image.replace(filt,"f150w"))
-               print("all checks")
-               all_data_for_SN = []
-               k = 0
-               while k < len(filt):
+            print("all checks")
+            all_data_for_SN = []
+            k = 0
+            while k < len(filt):
                    print(k)
                    h = fits.open(image.replace("f115w", filt[k])) 
                    k += 1
