@@ -15,7 +15,7 @@ import tqdm
 
 
 all_images = []
-sup_img = []
+has_sup = []
 filt = ["f115w","f150w","f277w","f444w"]
 
 #method to check if supernova places 16 pixels within border
@@ -95,23 +95,19 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                    if h[0].header["PLACED"] == 'yes':
                       supernova = 1
                     #adds image with nova into array
-                      sup_img.append(image)
                    else:
                           supernova = 0
                             #add filter adjustments for crop
-                   if supernova == 1:
-                        bound = check_bound(i,j)
-                        if bound == 1:
-                            all_data_for_SN = crop32(all_data_for_SN) 
-                        else:
-                            continue
-                  
-        else:
-            continue
-        all_images.append(all_data_for_SN)
-                
+                   bound = check_bound(i,j)
+                   if bound == 1: 
+                        all_data_for_SN = crop32(all_data_for_SN) 
+                   else:
+                        continue
+                       
+            if bound == 1:
+                all_images.append(all_data_for_SN)
+                has_sup.append(supernova)      
         
 #dump all_SN into supernovae
-pickle.dump(all_images, open("all_images.pickle", 'wb'))
-
+pickle.dump((all_images, has_sup),open("all_images.pickle", 'wb'))
         
