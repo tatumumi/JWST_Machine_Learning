@@ -120,4 +120,29 @@ history = cnn.fit(X_train, y_train,
                   shuffle=shuffle,
                   verbose=False)
 
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
+epochs = list(range(len(loss)))
+
+figsize = (6, 4)
+fig, axis1 = plt.subplots(figsize=figsize)
+plot1_lacc = axis1.plot(epochs, acc, 'navy', label='accuracy')
+plot1_val_lacc = axis1.plot(epochs, val_acc, 'deepskyblue', label="validation accuracy")
+
+plot1_loss = axis1.plot(epochs, loss, 'red', label='loss')
+plot1_val_loss = axis1.plot(epochs, val_loss, 'lightsalmon', label="validation loss")
+
+
+plots = plot1_loss + plot1_val_loss
+labs = [plot.get_label() for plot in plots]
+axis1.set_xlabel('Epoch')
+axis1.set_ylabel('Loss/Accuracy')
+plt.title("Loss/Accuracy History (Pristine Images)")
+plt.tight_layout()
+axis1.legend(loc='lower right')
+plt.show()
+
 
