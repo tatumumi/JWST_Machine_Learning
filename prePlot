@@ -7,6 +7,7 @@ Created on Wed Aug  3 10:32:44 2022
 """
 
 import matplotlib.pyplot as plt
+import pickle
 
 pickle_file = 'all_images.pickle'
 
