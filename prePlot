@@ -62,7 +62,4 @@ def plot_confusion_matrix(cnn, input_data, input_labels):
     
     plot_confusion_matrix(cnn, X_test, y_test)
 
-plt.subplot(number of rows, number of columns, position)
 
-plt.subplot(8, 10, 1, 2, 3)
-plt.imshow(cutout)
