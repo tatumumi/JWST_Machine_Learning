@@ -145,5 +145,8 @@ plt.tight_layout()
 axis1.legend(loc='lower right')
 plt.show()
 
+valid_predictX_valid = cnn.predict(X_valid)
+train_predictX_train = cnn.predict(X_train)
+
 
 pickle.dump((loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train),open("pre_images.pickle", 'wb'))
