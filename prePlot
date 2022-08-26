@@ -57,6 +57,6 @@ def plot_confusion_matrix(valid_predictX_valid, input_data, input_labels):
                     color="white" if cm_norm[i, j] < thresh else "black")
     plt.show()
     
-    plot_confusion_matrix(cnn, X_test, y_test)
+plot_confusion_matrix(valid_predictX_valid, X_valid, y_valid)
 
 
