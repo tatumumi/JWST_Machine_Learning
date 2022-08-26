@@ -16,7 +16,8 @@ pik = pickle.load(open(pickle_file,'rb'))
 predicted = 'pre_images.pickle'
 
 loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train = pickle.load(open(predicted,'rb'))
-
+#defines cnn
+cnn = Model(inputs=x_in, outputs=y_out)
 #convolution matrixx
 test_predictions = cnn.predict(X_test)
 
