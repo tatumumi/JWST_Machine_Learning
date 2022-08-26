@@ -16,15 +16,10 @@ pik = pickle.load(open(pickle_file,'rb'))
 predicted = 'pre_images.pickle'
 
 loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train = pickle.load(open(predicted,'rb'))
-#defines cnn
-cnn = Model(inputs=x_in, outputs=y_out)
-#convolution matrixx
-test_predictions = cnn.predict(X_test)
 
-def plot_confusion_matrix(cnn, input_data, input_labels):
+def plot_confusion_matrix(valid_predictX_valid, input_data, input_labels):
     
-    # Compute merger predictions for the test dataset
-    predictions = cnn.predict(input_data)
+    predictions = valid_predictX_valid
 
     # Convert to binary classification 
     predictions = (predictions > 0.5).astype('int32') 
