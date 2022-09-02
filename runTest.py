@@ -70,10 +70,15 @@ imsize = np.shape(X_train)[2]
 print("printing imsize: ", imsize)
 print("X train shape: ", X_train.shape)
 
-X_train = X_train.reshape(len(X_train), imsize, imsize, 3)
-X_valid = X_valid.reshape(len(X_valid), imsize, imsize, 3)
-X_test = X_test.reshape(len(X_test), imsize, imsize, 3)
+#X_train = X_train.reshape(len(X_train), imsize, imsize, 3)
+#X_valid = X_valid.reshape(len(X_valid), imsize, imsize, 3)
+#X_test = X_test.reshape(len(X_test), imsize, imsize, 3)
 
+X_train = np.transpose(X_train,[0,2,3,1])
+X_valid = np.transpose(X_valid,[0,2,3,1])
+X_test = np.transpose(X_test,[0,2,3,1])
+
+print("X train shape: ", X_train.shape)
 
 #building an CNN in keras 
 data_shape = np.shape(X)
