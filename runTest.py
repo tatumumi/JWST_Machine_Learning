@@ -67,6 +67,7 @@ X_train, X_split, y_train, y_split = train_test_split(X, y, test_size=0.3, rando
 X_valid, X_test, y_valid, y_test = train_test_split(X_split, y_split, test_size=0.666, random_state=random_state, shuffle=True)
 
 imsize = np.shape(X_train)[2]
+print("printing imsize", imsize)
 
 X_train = X_train.reshape(-1, imsize, imsize, 3)
 X_valid = X_valid.reshape(-1, imsize, imsize, 3)
