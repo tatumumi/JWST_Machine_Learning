@@ -58,6 +58,7 @@ def plot_confusion_matrix(valid_predictX_valid, input_data, input_labels):
                     ha="center", va="center", 
                     color="white" if cm_norm[i, j] < thresh else "black")
     plt.savefig("prePlot.pdf")
+    plt.close()
     
 plot_confusion_matrix(valid_predictX_valid, X_valid, y_valid)
 
