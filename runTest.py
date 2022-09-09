@@ -150,7 +150,10 @@ axis1.set_ylabel('Loss/Accuracy')
 plt.title("Loss/Accuracy History (Pristine Images)")
 plt.tight_layout()
 axis1.legend(loc='lower right')
-plt.show()
+
+plt.savefig("history.pdf")
+plt.close()
+
 
 valid_predictX_valid = cnn.predict(X_valid)
 train_predictX_train = cnn.predict(X_train)
