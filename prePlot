@@ -57,7 +57,7 @@ def plot_confusion_matrix(valid_predictX_valid, input_data, input_labels):
             ax.text(j, i, format(cm_norm[i, j], fmt), 
                     ha="center", va="center", 
                     color="white" if cm_norm[i, j] < thresh else "black")
-    plt.show()
+    plt.savefig("prePlot.pdf")
     
 plot_confusion_matrix(valid_predictX_valid, X_valid, y_valid)
 
