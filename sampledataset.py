@@ -83,7 +83,9 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
             k = 0
             while k < len(filt):
                    print(k)
-                   h = fits.open(image.replace("f115w", filt[k])) 
+                   img_name = image.replace("f115w", filt[k])
+                   h = fits.open(img_name)
+                   print(img_name)
                    k += 1
                    data = h[0].data
                    length = len(data)
@@ -103,7 +105,8 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
                         all_data_for_SN = crop32(all_data_for_SN) 
                    else:
                         continue
-                       
+                   h.close()
+                
             if bound == 1:
                 all_images.append(all_data_for_SN)
                 has_sup.append(supernova)      
