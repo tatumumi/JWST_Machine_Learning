@@ -16,7 +16,7 @@ import tqdm
 
 all_images = []
 has_sup = []
-filt = ["f115w","f150w","f277w","f444w"]
+filt = ["F115W","F150W","F277W","F444W"]
 
 #method to check if supernova places 16 pixels within border
 def check_bound(i, j):
@@ -45,7 +45,7 @@ check150 = False
 check277 = False
 check444 = False
 
-for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
+for image in tqdm.tqdm(glob.glob('file-home-*F115W*.fits')):
         #subprocess.getoutput("/Applications/ds9 new_file_" + filter + ".fits")
         #open each of the four images 
         
@@ -58,19 +58,19 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
             check115  = False
             
         #checks if 150W exists
-        if os.path.exists(image.replace("f115w", "f150w")) == True:
+        if os.path.exists(image.replace("F115W", "F150W")) == True:
             check150 = True
         else:
             check150 = False
             
         #checks if 277W exists
-        if os.path.exists(image.replace("f115w", "f277w")) == True:
+        if os.path.exists(image.replace("F115W", "F277W")) == True:
             check277 = True
         else:
             check277 = False
             
         #checks if 444W exists
-        if os.path.exists(image.replace("f115w", "f444w")) == True:
+        if os.path.exists(image.replace("F115W", "F444W")) == True:
             check444 = True
         else:
             check444 = False
@@ -83,7 +83,7 @@ for image in tqdm.tqdm(glob.glob('file-home-**.fits')):
             k = 0
             while k < len(filt):
                    print(k)
-                   img_name = image.replace("f115w", filt[k])
+                   img_name = image.replace("F115W", filt[k])
                    h = fits.open(img_name)
                    print(img_name)
                    k += 1
