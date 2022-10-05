@@ -14,7 +14,7 @@ import glob
 import random
 import time
 
-for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*'):
+for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*_same_scale.fits'):
   f = open("sub.sh", 'w')
   f.write("#!/bin/bash\n")
   f.write("#SBATCH --job-name=example\n")
