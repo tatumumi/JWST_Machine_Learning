@@ -45,7 +45,7 @@ check150 = False
 check277 = False
 check444 = False
 
-for image in tqdm.tqdm(glob.glob('file-home-*F115W*.fits')):
+for image in tqdm.tqdm(glob.glob('file-home-*F115W*_scale.fits')):
         #subprocess.getoutput("/Applications/ds9 new_file_" + filter + ".fits")
         #open each of the four images 
         
