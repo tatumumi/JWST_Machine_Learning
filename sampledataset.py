@@ -84,6 +84,7 @@ for image in tqdm.tqdm(glob.glob('file-home-*F115W*_scale.fits')):
             while k < len(filt):
                    print(k)
                    img_name = image.replace("F115W", filt[k])
+                   print(img_name)
                    h = fits.open(img_name)
                    print(img_name)
                    k += 1
