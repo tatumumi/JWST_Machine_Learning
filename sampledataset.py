@@ -45,10 +45,10 @@ check150 = False
 check277 = False
 check444 = False
             
-#all_f115w_images = glob.glob('file-home-*F115W*_scale.fits’)
-all_f150w_images = glob.glob('file-home-*F150W*_scale.fits’)
-all_f277w_images = glob.glob('file-home-*F277W*_scale.fits’)
-all_f444w_images = glob.glob('file-home-*F444W*_scale.fits’)
+all_f115w_images = glob.glob("file-home-*F115W*_scale.fits")
+all_f150w_images = glob.glob("file-home-*F150W*_scale.fits")
+all_f277w_images = glob.glob("file-home-*F277W*_scale.fits")
+all_f444w_images = glob.glob("file-home-*F444W*_scale.fits")
                              
 for image in tqdm.tqdm(all_f115w_images):
     if all_f115w_imgages.count(image):
