@@ -56,17 +56,17 @@ for image in tqdm.tqdm(all_f115w_images):
     else:
         check115 = False
                              
-    if all_f150w_images.count(image.replace("F115W", "F150W”)):
+    if all_f150w_images.count(image.replace('F115W', 'F150W')):
         check150 = True
     else:
         check150 = False
       
-    if all_f277w_images.count(image.replace("F115W", "F277W”)):
+    if all_f277w_images.count(image.replace('F115W', 'F277W')):
         check277 = True
     else:
         check277 = False      
                                             
-    if all_f444w_images.count(image.replace("F115W", "F444W”)):
+    if all_f444w_images.count(image.replace('F115W', 'F444W')):
         check444 = True
     else:
         check444 = False                                        
