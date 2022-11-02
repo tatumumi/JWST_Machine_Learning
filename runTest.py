@@ -82,7 +82,7 @@ print("X train shape: ", X_train.shape)
 
 #building an CNN in keras 
 data_shape = np.shape(X)
-input_shape = (imsize, imsize, 3) 
+input_shape = (imsize, imsize, 4) 
 
 x_in = Input(shape=input_shape)
 c0 = Convolution2D(8, (5, 5), activation='relu', strides=(1, 1), padding='same')(x_in)
