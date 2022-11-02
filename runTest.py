@@ -56,7 +56,7 @@ X = np.asarray(X).astype('float32')
 y = np.asarray(y).astype('float32')
 
 print(X.shape)
-X = X[:,0:3]
+X = X[:,0:4] #added 4 instead of 3 (4 filters)
 print(X.shape)
 print(y.shape)
 
@@ -82,7 +82,7 @@ print("X train shape: ", X_train.shape)
 
 #building an CNN in keras 
 data_shape = np.shape(X)
-input_shape = (imsize, imsize, 3)
+input_shape = (imsize, imsize, 3) 
 
 x_in = Input(shape=input_shape)
 c0 = Convolution2D(8, (5, 5), activation='relu', strides=(1, 1), padding='same')(x_in)
