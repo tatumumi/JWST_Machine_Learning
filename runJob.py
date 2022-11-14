@@ -50,7 +50,6 @@ for image in glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a
   print(getoutput("sbatch sub.sh"))
   time.sleep(0.25)
   
-  
 
     
   
