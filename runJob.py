@@ -42,6 +42,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
       print("Found ", output_image_name, "but there was a problem opening it")
       run_this_image = True
 
+
   
   if run_this_image:
     f = open("sub.sh", 'w')
@@ -59,7 +60,7 @@ for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*
     f.write("python MachineLearningProjectFinal.py " + image)
     f.close()
 
-    while get_number_of_jobs() > 50:
+    while get_number_of_jobs() > 150:
       print("Too many jobs. Checking again soon.")
       time.sleep(3.)
 

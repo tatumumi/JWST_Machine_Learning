@@ -82,78 +82,80 @@ end = 0
 
 #while loop goes through all of the different filters 
 #all in one position
-end = 0
-while end != 4:
-    #starts with F115 filter
-    if end == 0:
-        filter = 'F115W'
-        file = "F115W.fits"
-    if end == 1:
-        filter = 'F150W'
-        file = "F150W.fits"
-    if end == 2:
-        filter = 'F277W'
-        file = "F277W.fits"
-    if end == 3:
-        filter = 'F444W'
-        file = "F444W.fits"
-        
-    if filter == "F115W":
-        f = fits.open(sys.argv[1].replace('f115w', filter.lower()))
-    if filter == "F150W":
-        f = fits.open(sys.argv[1].replace('f115w', filter.lower()))
-    if filter == "F277W":
-        f = fits.open(sys.argv[1].replace('f115w', filter.lower()))
-    if filter == "F444W":
-        f = fits.open(sys.argv[1].replace('f115w', filter.lower()))
-    data = f[0].data
-    #WAS F200W
-    model.bandmag(filter , 'ab', time=0.)
-    print(model.bandmag(filter , 'ab', time=0.))
-    print(REDSHIFT)
-    print(header)
 
-   
-    magb= model.bandmag(filter, 'ab', time=0.)
-    e_s= 10**((magb-header['ABZP'])/-2.5)
-    print(e_s)
- 
+for noise in [0, 1]:
+    end = 0
+    while end != 4:
+        #starts with F115 filter
+        if end == 0:
+            filter = 'F115W'
+            file = "F115W.fits"
+        if end == 1:
+            filter = 'F150W'
+            file = "F150W.fits"
+        if end == 2:
+            filter = 'F277W'
+            file = "F277W.fits"
+        if end == 3:
+            filter = 'F444W'
+            file = "F444W.fits"
+        
+        if filter == "F115W":
+            f = fits.open(sys.argv[1].replace('f115w', filter.lower()).replace(".fits", noise*"_noise" + ".fits"))
+        if filter == "F150W":
+            f = fits.open(sys.argv[1].replace('f115w', filter.lower()).replace(".fits", noise*"_noise" + ".fits"))
+        if filter == "F277W":
+            f = fits.open(sys.argv[1].replace('f115w', filter.lower()).replace(".fits", noise*"_noise" + ".fits"))
+        if filter == "F444W":
+            f = fits.open(sys.argv[1].replace('f115w', filter.lower()).replace(".fits", noise*"_noise" + ".fits"))
+        data = f[0].data
+        #WAS F200W
+        model.bandmag(filter , 'ab', time=0.)
+        print(model.bandmag(filter , 'ab', time=0.))
+        print(REDSHIFT)
+        print(header)
+
+        
+        magb= model.bandmag(filter, 'ab', time=0.)
+        e_s= 10**((magb-header['ABZP'])/-2.5)
+        print(e_s)
+        
      
+        
+        #opens image 
+        h = fits.open(file)
+        PSF = h["DET_SAMP"].data
+        
+        x = 0
+        y = 0
+        center = int((len(PSF)-1)/2)
+        x=center
+        y=center
+        print("x, y", x,y)
+        print("i,j", i,j)
+        print("e_s", e_s)
+        
+        f[0].header["SN_I"] = i
+        f[0].header["SN_J"] = j
+        f[0].header["SN_" + filter.upper()] = magb
+        
+        PSF = PSF[x - 5: x + 5, y - 5: y + 5]
+        print(PSF.shape)
+        print(f[0].data[i - 5: i + 5, j - 5: j + 5].shape)
+        print(f[0].data.shape)
+        if yes >= 0.5:      
+            f[0].header["PLACED"] = 'yes'
+            f[0].data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
+        else:
+            f[0].header["PLACED"] = 'no'
+        
+        #figure out what parts of the path are unique and add it her for "-".join
+        f.writeto("file" + "-".join(sys.argv[1].split("/")[:11]).replace("f115w", filter).replace(".fits", noise*"_noise" + ".fits"), clobber = True)
+        f.close()
+        old_fl = "/Users/joshuaumiamaka/Downloads/hlsp_vela_jwst_nircam_vela01_f150w_v3_sim/cam01/jwst/nircam/f150w/hlsp_vela_jwst_nircam_vela01-cam01-a0.250_f150w_v3_sim.fits"
+        new_fl = "file" + filter + ".fits"
+        assert old_fl != new_fl
     
-    #opens image 
-    h = fits.open(file)
-    PSF = h["DET_SAMP"].data
-    
-    x = 0
-    y = 0
-    center = int((len(PSF)-1)/2)
-    x=center
-    y=center
-    print("x, y", x,y)
-    print("i,j", i,j)
-    print("e_s", e_s)
-    
-    f[0].header["SN_I"] = i
-    f[0].header["SN_J"] = j
-    f[0].header["SN_" + filter.upper()] = magb
-    
-    PSF = PSF[x - 5: x + 5, y - 5: y + 5]
-    print(PSF.shape)
-    print(f[0].data[i - 5: i + 5, j - 5: j + 5].shape)
-    print(f[0].data.shape)
-    if yes >= 0.5:      
-        f[0].header["PLACED"] = 'yes'
-        f[0].data[i - 5: i + 5, j - 5: j + 5] += PSF*e_s
-    else:
-        f[0].header["PLACED"] = 'no'
-    
-    #figure out what parts of the path are unique and add it her for "-".join
-    f.writeto("file" + "-".join(sys.argv[1].split("/")[:11]).replace("f115w", filter), clobber = True)
-    f.close()
-    old_fl = "/Users/joshuaumiamaka/Downloads/hlsp_vela_jwst_nircam_vela01_f150w_v3_sim/cam01/jwst/nircam/f150w/hlsp_vela_jwst_nircam_vela01-cam01-a0.250_f150w_v3_sim.fits"
-    new_fl = "file" + filter + ".fits"
-    assert old_fl != new_fl
-    
-    end = end + 1
+        end = end + 1
 import subprocess
 subprocess.getoutput("/Applications/ds9 new_file6_" + "*" + ".fits")
