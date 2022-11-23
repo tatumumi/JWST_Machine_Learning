@@ -13,6 +13,7 @@ Created on Thu Mar 24 12:08:07 2022
 
 # arrays
 import numpy as np
+import sys
 
 # fits
 from astropy.io import fits
@@ -39,7 +40,7 @@ from sklearn import metrics
 
 version = 'pristine'
 
-pickle_file = 'all_images.pickle'
+pickle_file = sys.argv[1]
 hdu = pickle.load(open(pickle_file,'rb'))
 
 #CPU times: user 2.86 s, sys: 4.32 s, total: 7.18 s
@@ -151,12 +152,20 @@ plt.title("Loss/Accuracy History (Pristine Images)")
 plt.tight_layout()
 axis1.legend(loc='lower right')
 
-plt.savefig("history.pdf")
+if (sys.argv[1] == "all_images.pickle"):
+  plt.savefig("history.pdf")
+else:
+  plt.savefig("historyN.pdf")
+  
 plt.close()
 
 
 valid_predictX_valid = cnn.predict(X_valid)
 train_predictX_train = cnn.predict(X_train)
 
+if (sys.argv[1] == "all_images.pickle"):
+  output_pickle = "pre_images.picke"
+else:
+  output_pickle = "pre_imagesN.pickle"
 
-pickle.dump((loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train),open("pre_images.pickle", 'wb'))
+pickle.dump((loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train),open(output_pickle, 'wb'))
