@@ -164,7 +164,7 @@ valid_predictX_valid = cnn.predict(X_valid)
 train_predictX_train = cnn.predict(X_train)
 
 if (sys.argv[1] == "all_images.pickle"):
-  output_pickle = "pre_images.picke"
+  output_pickle = "pre_images.pickle"
 else:
   output_pickle = "pre_imagesN.pickle"
 
