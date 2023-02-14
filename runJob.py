@@ -20,7 +20,7 @@ import tqdm
 def get_number_of_jobs():
   return len(getoutput("squeue | grep $USER").split('\n'))
 
-files_made = glob.glob("file/home*F115W*fits")
+files_made = glob.glob("file-home*F115W*fits")
 #files_made = [item.replace("F115W", "f115w") for item in files_made]
 
 for image in tqdm.tqdm(glob.glob('/home/tatumumi/supernova_lts/JWST_Vela/*/*/*/*/*f115w/*a0.[2-9]*_same_scale.fits')):
