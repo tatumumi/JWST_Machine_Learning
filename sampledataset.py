@@ -80,6 +80,7 @@ for i in range(34):
 #all_f444w_imagesN = glob.glob("file-home-*F444W*_scale_noise.fits")
                              
 for image in tqdm.tqdm(all_f115w_images):
+    print(image)
     if all_f115w_images.count(image):
         check115 = True
     else:
