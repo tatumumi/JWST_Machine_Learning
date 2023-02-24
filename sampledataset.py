@@ -48,6 +48,7 @@ check150 = False
 check277 = False
 check444 = False
 
+all_f115w_images = []
 all_f150w_images = []
 all_f277w_images = []
 all_f444w_images = []
