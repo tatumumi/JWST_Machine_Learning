@@ -20,6 +20,14 @@ has_sup = []
 has_supN = []
 filt = ["F115W","F150W","F277W","F444W"]
 
+all_f150w_images = []
+all_f277w_images = []
+all_f444w_images = []
+all_f115w_imagesN = []
+all_f150w_imagesN = []
+all_f277w_imagesN = []
+all_f444w_imagesN = []
+
 #method to check if supernova places 16 pixels within border
 def check_bound(i, j):
     if i >= 16 and i <= length - 16 and j >= 16 and j <= length -16:
