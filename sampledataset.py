@@ -48,26 +48,26 @@ check150 = False
 check277 = False
 check444 = False
 
-#all_f115w_images = []
-#all_f150w_images = []
-#all_f277w_images = []
-#all_f444w_images = []
-#all_f115w_imagesN = []
-#all_f150w_imagesN = []
-#all_f277w_imagesN = []
-#all_f444w_imagesN = []
+all_f115w_images = []
+all_f150w_images = []
+all_f277w_images = []
+all_f444w_images = []
+all_f115w_imagesN = []
+all_f150w_imagesN = []
+all_f277w_imagesN = []
+all_f444w_imagesN = []
 
 for i in range(34):
     for j in range(18):
         for k in range(len("file-home-tatumumi*nircam_vela"+str(i)+"-cam"+str(j))):
-            all_f115w_images = glob.glob("file-home-*F115W*_scale.fits")
-            all_f150w_images = glob.glob("file-home-*F150W*_scale.fits") 
-            all_f277w_images = glob.glob("file-home-*F277W*_scale.fits")
-            all_f444w_images = glob.glob("file-home-*F444W*_scale.fits")
-            all_f115w_imagesN = glob.glob("file-home-*F115W*_scale_noise.fits")
-            all_f150w_imagesN = glob.glob("file-home-*F150W*_scale_noise.fits")
-            all_f277w_imagesN = glob.glob("file-home-*F277W*_scale_noise.fits")
-            all_f444w_imagesN = glob.glob("file-home-*F444W*_scale_noise.fits")
+            all_f115w_images.append(glob.glob("file-home-*F115W*_scale.fits"))
+            all_f150w_images.append(glob.glob("file-home-*F150W*_scale.fits"))
+            all_f277w_images.append(glob.glob("file-home-*F277W*_scale.fits"))
+            all_f444w_images.append(glob.glob("file-home-*F444W*_scale.fits"))
+            all_f115w_imagesN.append(glob.glob("file-home-*F115W*_scale_noise.fits"))
+            all_f150w_imagesN.append(glob.glob("file-home-*F150W*_scale_noise.fits"))
+            all_f277w_imagesN.append(glob.glob("file-home-*F277W*_scale_noise.fits"))
+            all_f444w_imagesN.append(glob.glob("file-home-*F444W*_scale_noise.fits"))
 print(len(all_f115w_images))
 #all_f115w_images = glob.glob("file-home-*F115W*_scale.fits")
 #all_f150w_images = glob.glob("file-home-*F150W*_scale.fits")
