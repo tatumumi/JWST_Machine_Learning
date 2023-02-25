@@ -69,6 +69,16 @@ for i in range(34):
             all_f277w_imagesN.append(glob.glob("file-home-*F277W*_scale_noise.fits"))
             all_f444w_imagesN.append(glob.glob("file-home-*F444W*_scale_noise.fits"))
 print(type(all_f115w_images[0]))
+
+all_f115w_images = sum(all_f115w_images,[])
+all_f150w_images = sum(all_f150w_images,[])
+all_f277w_images = sum(all_f277w_images,[])
+all_f444w_images = sum(all_f444w_images,[])
+all_f115w_imagesN = sum(all_f115w_images,[])
+all_f150w_imagesN = sum(all_f150w_images,[])
+all_f277w_imagesN = sum(all_f277w_images,[])
+all_f444w_imagesN = sum(all_f444w_images,[])
+
 #all_f115w_images = glob.glob("file-home-*F115W*_scale.fits")
 #all_f150w_images = glob.glob("file-home-*F150W*_scale.fits")
 #all_f277w_images = glob.glob("file-home-*F277W*_scale.fits")
