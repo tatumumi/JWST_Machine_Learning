@@ -68,7 +68,7 @@ for i in range(34):
             all_f150w_imagesN.append(glob.glob("file-home-*F150W*_scale_noise.fits"))
             all_f277w_imagesN.append(glob.glob("file-home-*F277W*_scale_noise.fits"))
             all_f444w_imagesN.append(glob.glob("file-home-*F444W*_scale_noise.fits"))
-print(len(all_f115w_images))
+print(type(all_f115w_images))
 #all_f115w_images = glob.glob("file-home-*F115W*_scale.fits")
 #all_f150w_images = glob.glob("file-home-*F150W*_scale.fits")
 #all_f277w_images = glob.glob("file-home-*F277W*_scale.fits")
