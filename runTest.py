@@ -159,6 +159,8 @@ else:
   
 plt.close()
 
+cnnPickle = "cnn_pickle.pickle"
+pickle.dump(cnn, open(cnnPickle,'wb')
 
 valid_predictX_valid = cnn.predict(X_valid)
 train_predictX_train = cnn.predict(X_train)
