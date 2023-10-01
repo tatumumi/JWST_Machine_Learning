@@ -11,11 +11,11 @@ import pickle
 from sklearn import metrics
 import numpy as np
 
-pickle_file = 'all_images.pickle'
+pickle_file = 'training_patches.pickle'
 
 pik = pickle.load(open(pickle_file,'rb'))
 
-predicted = 'pre_images.pickle'
+predicted = 'all_patches.pickle'
 
 loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train = pickle.load(open(predicted,'rb'))
 
@@ -57,7 +57,7 @@ def plot_confusion_matrix(valid_predictX_valid, input_data, input_labels):
             ax.text(j, i, format(cm_norm[i, j], fmt), 
                     ha="center", va="center", 
                     color="white" if cm_norm[i, j] < thresh else "black")
-    plt.savefig("prePlot.pdf")
+    plt.savefig("prePlot_patches.pdf")
     plt.close()
     
 plot_confusion_matrix(valid_predictX_valid, X_valid, y_valid)
