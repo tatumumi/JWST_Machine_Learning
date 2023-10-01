@@ -152,22 +152,26 @@ plt.title("Loss/Accuracy History (Pristine Images)")
 plt.tight_layout()
 axis1.legend(loc='lower right')
 
-if (sys.argv[1] == "all_images.pickle"):
-  plt.savefig("history.pdf")
-else:
-  plt.savefig("historyN.pdf")
+#if (sys.argv[1] == "all_images.pickle"):
+  #plt.savefig("history.pdf")
+#else:
+ # plt.savefig("historyN.pdf")
+
+plt.savefig("history_patches.pdf")
   
 plt.close()
 
-cnnPickle = "cnn_pickle.pickle"
+cnnPickle = "cnn_picklePatches.pickle"
 pickle.dump(cnn, open(cnnPickle,'wb'))
 
 valid_predictX_valid = cnn.predict(X_valid)
 train_predictX_train = cnn.predict(X_train)
 
-if (sys.argv[1] == "all_images.pickle"):
-  output_pickle = "pre_images.pickle"
-else:
-  output_pickle = "pre_imagesN.pickle"
+#if (sys.argv[1] == "all_images.pickle"):
+  #output_pickle = "pre_images.pickle"
+#else:
+ # output_pickle = "pre_imagesN.pickle"
+
+output_pickle = "all_patches.pickle"
 
 pickle.dump((loss, val_loss, acc, val_acc, X_train, y_train, X_valid, y_valid, valid_predictX_valid, train_predictX_train),open(output_pickle, 'wb'))
