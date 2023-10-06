@@ -54,6 +54,11 @@ y = hdu[1]
 random_state = 42
 
 X = np.asarray(X).astype('float32')
+
+for i in range(len(X)):
+  for j in range(len(X[0])):
+    X[i,j] = (X[i,j] - X[i,j].min())/(X[i,j].max() - X[i,j].min())
+    
 y = np.asarray(y).astype('float32')
 
 print(X.shape)
